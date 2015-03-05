@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">login</div>
+					<div class="panel-body">
+						<form>
+							<div class="form-group">
+								<label for="Email">Email address</label>
+								<input type="email" class="form-control" id="Email1" name="uname" placeholder="Enter email">
+							</div>
+							<div class="form-group">
+								<label for="Password1">Password</label>
+								<input type="password" class="form-control" id="Password1" name="pwd" placeholder="Password">
+							</div>
+							<div class="form-group">
+								<label for="Password2">Password</label>
+								<input type="password" class="form-control" id="Password2" name="pwd2" placeholder="Password">
+							</div>
+							<br />
+							<button type="submit" class="btn btn-success btn-block" onclick="register()">Register</button>
+							<br />
+							<a href="/login">
+								<input type="button" class="btn btn-default pull-right" value="Login" />
+							</a>
+							<p>already have an account?</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script>
+		function register(){
+			var data = $("form").serialize();
+			//console.log(data);
+			$.ajax({
+				url: "/register",
+				type: "POST",
+				data: data,
+				success: function(data,status){
+					if(status == "success"){
+						location.href = "login";
+					}
+				},
+				error: function(res,err){
+					location.href = "register";
+				}
+			});
+		}
+	</script>
+</body>
+</html>

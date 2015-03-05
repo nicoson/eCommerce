@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div>
+			<div class="col-md-3">
+				<div>
+					Search: <input type="text" ng-model="query" />
+				</div>
+				<br />
+				<br />
+				<div>
+					Sort by: 
+					<select ng-model="orderProp">
+						<option value="name">Alphabetical</option>
+						<option value="age">Newest</option>
+					</select>
+				</div>
+			</div>	
+
+			<div class="col-md-9">
+				<p>Total number of phones: {{phones.length}}</p>
+				<ul>
+					<!-- <li ng-repeat="phone in phones | filter:{name:query} | orderBy:orderProp" class="thumbnail"> -->
+					<li ng-repeat="phone in phones | filter:{name:query} | orderBy:orderProp" class="thumbnail">
+						<!-- <a href="#/booklist"><img ng-src="{{phone.imageUrl}}" /></a> -->
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-2">
+									<a href="#/phonedetail/{{phone.id}}"><div style="background-image:url('{{phone.imageUrl}}'); background-size:100px 100px; width:100px; height:100px" /></div></a>
+								</div>
+								<div class="col-sm-10">
+									<a href="#/phonedetail/{{phone.id}}">{{phone.name}}</a>
+									<p>{{phone.snippet}}</p>
+									<input type="button" class="btn btn-sm btn-success pull-right" value="add to cart" />
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

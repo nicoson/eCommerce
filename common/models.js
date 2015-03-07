@@ -5,8 +5,18 @@ module.exports = {
 		gender: {type: Boolean, default: true}
 	},
 	commodity: {
-		name: String,
-		price: Number,
-		imgSrc: String
+		id: {type: String},
+		name: {type: String},
+		price: {type: Number},
+		imgSrc: {type: String}
+	},
+	cart:{
+		uId: {type: String},
+		cId: {type: String},
+		cName: {type: String},
+		cPrice: {type: Number},
+		cImgSrc: {type: String},
+		cQuantity: {type: Number, default: 1},
+		cStatus: {type: Boolean, default: false}
 	}
 };

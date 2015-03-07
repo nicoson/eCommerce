@@ -33,13 +33,7 @@ app.set('views', require('path').join(__dirname, 'views'));
 app.use(express.static(require('path').join(__dirname, 'public')));
 
 app.get("/", function(req,res){
-	res.render("home");
-});
-app.get("/home", function(req,res){
-	res.render("phone-home");
-});
-app.get("/pp", function(req,res){
-	res.send("hello");
+	res.render("home", {active: ["active","","","","",""]});
 });
 
 //router management

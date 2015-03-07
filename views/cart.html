@@ -1,0 +1,36 @@
+<% include header.html %>
+
+	<div class="container">
+		<% for(var i in carts){if(!carts[i].cId)continue %>
+		<div class="row">
+			<div class="li-checkbox col-xs-1">
+				<input type="checkbox" data-id="<%=carts[i]._id%>" data-index="<%=i%>" data-price="<%=carts[i].cPrice%>" name="chkItem" class="li-checkbox input">
+			</div>
+			<div class="li-img col-xs-2">
+				<a href="">
+					<img class="li-img" src="<%=carts[i].cImgSrc%>" width="100" alt="">
+				</a>
+			</div>
+			<div class="li-content col-xs-2">
+				<a href="">
+					<%=carts[i].cName%>
+				</a>
+			</div>
+			<div class="li-price col-xs-2">
+				<a href="">
+					<%=carts[i].cPrice%>
+				</a>
+			</div>
+			<div class="li-quantity col-xs-3">
+				<a href="javascript:void(0)" class="btn btn-default btn-xs" data-type="subtr">-</a>
+				<input type="text" id="Q<%=i%>" style="width:40px;" value="<%=carts[i].cQuantity%>">
+				<a href="javascript:void(0)" class="btn btn-default btn-xs" data-type="add">+</a>
+			</div>
+			<div class="li-del col-xs-1">
+				<a href="/delFromCart/<%=carts[i]._id%>" class="btn btn-primary btn-xs">Remove</a>
+			</div>
+		</div>
+		<%}%>
+	</div>
+
+<% include footer.html %>

@@ -1,0 +1,13 @@
+body{
+	padding-top: 70px;
+}
+
+footer{
+	height: 200px;
+	padding: 50px;
+	background: rgba(240,240,240,0.5);
+}
+
+footer h5{
+	text-align: center;
+}

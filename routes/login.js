@@ -1,6 +1,7 @@
 module.exports = function(app){
 	app.get("/login", function(req, res){
-		res.render("login");
+		var active = ["","","active","","",""];
+		res.render("login", {active:active});
 	});
 
 	app.post("/login", function(req, res){

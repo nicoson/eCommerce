@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div>
+			<!-- <div>{{test}}</div> -->
 			<div class="col-md-3">
 				<div>
 					Search: <input type="text" ng-model="query" />
@@ -11,7 +12,7 @@
 					Sort by: 
 					<select ng-model="orderProp">
 						<option value="name">Alphabetical</option>
-						<option value="age">Newest</option>
+						<option value="price">Price Low to High</option>
 					</select>
 				</div>
 			</div>	
@@ -25,12 +26,15 @@
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-sm-2">
-									<a href="#/phonedetail/{{phone.id}}"><div style="background-image:url('{{phone.imageUrl}}'); background-size:100px 100px; width:100px; height:100px" /></div></a>
+									<a href="#/phonedetail/{{phone.id}}">
+										<div style="background-image:url('{{phone.imageUrl}}'); background-size:100px 100px; width:100px; height:100px"></div>
+									</a>
 								</div>
 								<div class="col-sm-10">
+									<h3>{{phone.price+100 | currency}}</h3>
 									<a href="#/phonedetail/{{phone.id}}">{{phone.name}}</a>
 									<p>{{phone.snippet}}</p>
-									<input type="button" class="btn btn-sm btn-success pull-right" value="add to cart" />
+									<input type="button" class="btn btn-sm btn-success pull-right" value="add to cart" ng-click="addtoCart(phone.id)" data-test="{{phone.name}}"/>
 								</div>
 							</div>
 						</div>

@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Register</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-
-</head>
-<body>
+<% include header.html %>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
 				<div class="panel panel-default">
-					<div class="panel-heading">login</div>
+					<div class="panel-heading">Register</div>
 					<div class="panel-body">
 						<form>
 							<div class="form-group">
@@ -52,7 +39,7 @@
 	<script>
 		function register(){
 			var data = $("form").serialize();
-			//console.log(data);
+			//alert(data);
 			$.ajax({
 				url: "/register",
 				type: "POST",
@@ -68,5 +55,5 @@
 			});
 		}
 	</script>
-</body>
-</html>
+
+<% include footer.html %>

@@ -1,11 +1,12 @@
 module.exports = function(app){
 	app.get("/register", function(req,res){
-		res.render("register");
+		var active = ["","","","active","",""];
+		res.render("register", {active:active});
 	});
 	app.post("/register", function(req,res){
 		var User = global.dbHelper.getModel("user");
 		var uname = req.body.uname;
-		//console.log(uname+" "+req.body.pwd);
+		//console.log(req);
 		User.findOne({name:uname}, function(error, doc){
 			if(doc){
 				req.session.error = "user name already exists, please choose another one";

@@ -40,8 +40,17 @@
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right">
-					<li class="<%=active[2]%>"><a href="login">login</a></li>
-					<li class="<%=active[3]%>"><a href="register">sign</a></li>
+					<% if(user){ %>
+						<li>
+							<a>Welcome, <%= user %></a>
+						</li>
+						<li> 
+							<a href="/logout">Logout</a>
+						</li>
+					<% }else{ %>
+						<li class="<%=active[2]%>"><a href="login">login</a></li>
+						<li class="<%=active[3]%>"><a href="register">sign</a></li>
+					<% } %>
 					<li class="<%=active[4]%>"><a href="" onclick="init()">init</a></li>
 					<li class="<%=active[5]%>"><a href="cart">my Cart</a></li>
 				</ul>

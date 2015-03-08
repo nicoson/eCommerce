@@ -10,14 +10,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 //app.use(multer());
 
-// app.use(function(req,res,next){
-// 	res.locals.user = req.session.user;
-// 	var err = req.session.error;
-// 	res.locals.message = "";
-// 	if(err)res.locals.message = "<div class='alert alert-danger' style='margin-bottom: 20px;color:red;'>" + err + "</div>";
-// 	next();
-// });
-
 //set session
 app.use(session({
 	secret:"secret",
@@ -26,15 +18,19 @@ app.use(session({
 	cookie:{maxAge:1000*60*24*2}
 }));
 
+app.use(function(req,res,next){
+	res.locals.user = req.session.user || null;
+	var err = req.session.error;
+	// res.locals.message = "";
+	// if(err)res.locals.message = "<div class='alert alert-danger' style='margin-bottom: 20px;color:red;'>" + err + "</div>";
+	next();
+});
+
 //set view engine & views file dir & public files dir
 app.set( 'view engine', 'html' );
 app.engine( '.html', require( 'ejs' ).__express );
 app.set('views', require('path').join(__dirname, 'views'));
 app.use(express.static(require('path').join(__dirname, 'public')));
-
-app.get("/", function(req,res){
-	res.render("home", {active: ["active","","","","",""]});
-});
 
 //router management
 require("./routes/index")(app);

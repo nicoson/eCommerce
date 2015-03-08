@@ -1,7 +1,8 @@
 module.exports = function(app){
 	app.get("/products", function(req,res){
 		var active = ["","active","","","",""];
-		res.render("phone-home", {active:active});
+		console.log(req.session.user);
+		res.render("phone-home", {active:active, user:req.session.user});
 	});
 	
 	app.post("/products/addtoCart", function(req,res){

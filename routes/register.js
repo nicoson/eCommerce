@@ -19,6 +19,7 @@ module.exports = function(app){
 					if(error){
 						res.sendStatus(500);
 					}else{
+						req.session.user = uname;
 						req.session.error = "success in create user";
 						res.sendStatus(200);
 					}

@@ -27,4 +27,14 @@ angular.module('myControllers', [])
 	$scope.setImage = function(imageUrl){
 		$scope.mainImageUrl = imageUrl;
 	}
+}])
+
+.controller("cartCtr", ["$scope", "$http", function($scope, $http){
+	$scope.test = "kk";
+	$scope.deleItem = function(data){
+		$scope.test = data;
+		$http.post("/cart/deleItem", {data:data}).success(function(data){
+
+		});
+	}
 }]);

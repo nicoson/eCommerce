@@ -1,6 +1,6 @@
 <% include header.html %>
 
-	<div class="container">
+	<div class="container" ng-controller="cartCtr">
 		<% for(var i in carts){if(!carts[i].cId)continue %>
 		<div class="row">
 			<div class="li-checkbox col-xs-1">
@@ -27,10 +27,12 @@
 				<a href="javascript:void(0)" class="btn btn-default btn-xs" data-type="add">+</a>
 			</div>
 			<div class="li-del col-xs-1">
-				<a href="/delFromCart/<%=carts[i]._id%>" class="btn btn-primary btn-xs">Remove</a>
+				<a ng-click="deleItem(carts[i].cName)" class="btn btn-primary btn-xs">Remove</a>
 			</div>
 		</div>
 		<%}%>
+		<div>{{test}}</div>
+		
 	</div>
 
 <% include footer.html %>
